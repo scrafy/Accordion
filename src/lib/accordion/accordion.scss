@@ -1,0 +1,35 @@
+.accordion{
+    padding: 1em;
+    border-radius: 10px;
+    border:1px solid black;
+    & .accordion-header{
+        border-radius: 10px;
+        padding: 0.3em;
+        background: linear-gradient(to right, #feffff 0%,#a0d8ef 0%,#ddf1f9 67%);
+        border: 0.5px solid black;
+        font-weight: bold;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    & .accordion-panel{
+        & .accordion-body{
+            border-radius: 10px;
+            padding: 0;
+            background: #e7e7e7;
+            margin:1em 0;
+            height: 0;
+            transition: height 0.5s linear padding 0.5s linear;
+        }
+        & .accordion-body--show{
+            height: auto;
+            padding: 1em;
+        }
+        &:last-child{
+            & .accordion-body{
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+

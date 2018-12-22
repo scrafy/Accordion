@@ -1,7 +1,9 @@
 const loadFile = require("./loadFile");
+require('./accordion.scss');
 
-function render(sections, ele_parent) {
+function render(sections, ele_parent, class_name = "accordion") {
   let dl = document.createElement("dl");
+  dl.setAttribute("class", class_name);
   let dd = null;
   let dt = null;
   let p = null;
@@ -10,9 +12,12 @@ function render(sections, ele_parent) {
   sections.map(content => {
     total_sections++;
     dt = document.createElement("dt");
+    dt.setAttribute("class", `${class_name}-header`);
     dt.innerText = `Section ${total_sections}`;
     dd = document.createElement("dd");
+    dd.setAttribute("class", `${class_name}-panel`);
     p = document.createElement("p");
+    p.setAttribute("class", `${class_name}-body`);
     p.innerText = content.toString();
     dd.appendChild(p);
     dl.appendChild(dt);
@@ -22,7 +27,7 @@ function render(sections, ele_parent) {
 }
 
 Accordion = ({ config }) => {
-  let { sections, ele_parent, load_ajax, file_name } = config;
+  let { sections, ele_parent, load_ajax, file_name, class_name } = config;
 
   if (!load_ajax && !(sections instanceof Array))
     throw Error("The sections parameter has to be an array");
@@ -53,13 +58,13 @@ Accordion = ({ config }) => {
 
     loadFile(file_name)
       .then(_sections => {
-        render(_sections, ele_parent);
+        render(_sections, ele_parent, class_name);
       })
       .catch(err => {
         throw Error(err);
       });
   } else {
-    render(sections, ele_parent);
+    render(sections, ele_parent, class_name);
   }
 };
 
