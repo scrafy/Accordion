@@ -1,0 +1,20 @@
+{
+  "name": "test_shibsted",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "babel": "babel --presets es2015 src/index.js -o public/index.bundle.js",
+    "start": "http-server -p 3000",
+    "build": "webpack --config webpack.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "webpack": "^4.28.0",
+    "webpack-cli": "^3.1.2",
+    "http-server": "^0.11.1"
+  }
+}
