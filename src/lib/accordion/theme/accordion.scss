@@ -1,0 +1,39 @@
+@import 'vars.scss';
+
+.accordion{
+    padding: 1em;
+    border-radius: $accordion-border-radius;
+    border:1px solid $accordion-border-accordion-color;
+    & .accordion-header{
+        border-radius: $accordion-border-radius;
+        padding: 0.3em;
+        background: linear-gradient(to right, $accordion-gradient-first-color 0%,$accordion-gradient-second-color 0%, $accordion-gradient-third-color 67%);
+        border: 0.5px solid $accordion-border-header-color;
+        font-weight: bold;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    & .accordion-panel{
+        & .accordion-body{
+            border-radius: $accordion-border-radius;
+            overflow: hidden;
+            padding: 0;
+            background: $accordion-background-body-color;
+            margin:1em 0;
+            height: 0;
+            transition: height 0.2s linear, padding 0.2s linear;
+            text-align: justify
+        }
+        & .accordion-body--show{
+            height: auto;
+            padding: 1em;
+        }
+        &:last-child{
+            & .accordion-body{
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+

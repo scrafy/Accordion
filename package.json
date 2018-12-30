@@ -2,19 +2,21 @@
   "name": "test_shibsted",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/main.js",
   "scripts": {
-    "babel": "babel --presets es2015 src/index.js -o public/index.bundle.js",
     "start": "http-server -p 3000",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-preset-env": "^1.7.0",
     "css-loader": "^2.0.2",
+    "fs": "0.0.1-security",
     "http-server": "^0.11.1",
+    "jest": "^23.6.0",
+    "jquery": "^3.3.1",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
